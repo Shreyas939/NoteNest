@@ -4,11 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-  "dev": "vite",
-  "build": "vite build",   // Updated this line
-  "lint": "eslint .",
-  "preview": "vite preview"
-},
+    "dev": "vite",
+    "build": "vite build", 
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
   "dependencies": {
     "axios": "^1.7.9",
     "moment": "^2.30.1",
@@ -16,7 +16,8 @@
     "react-dom": "^18.3.1",
     "react-icons": "^5.4.0",
     "react-modal": "^3.16.3",
-    "react-router-dom": "^7.1.1"
+    "react-router-dom": "^7.1.1",
+    "react-scripts": "^5.0.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
@@ -53,5 +54,12 @@
         "version": "detect"
       }
     }
+  },
+  "dependencies": {
+    "vite": "^4.0.0", 
+    "react-router-dom": "^6.4.1"
+  },
+  "engines": {
+    "node": "16.x"
   }
 }
