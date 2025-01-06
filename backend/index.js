@@ -34,11 +34,12 @@ app.use(express.json());
 
 
 // CORS configuration
-app.use(
-    cors({
-        origin: "*",  // Allow all origins for now (can be adjusted for security)
-    })
-);
+app.use(cors({
+  origin: 'https://note-nest-opal.vercel.app/',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true  // Enable credentials (cookies, authorization headers) cross-origin
+}));
 
 // Simple route to test the server
 app.get("/", (req, res) => {
