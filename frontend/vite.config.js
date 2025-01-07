@@ -4,8 +4,10 @@ import react from '@vitejs/plugin-react';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: "./", // Important for Vercel deployments
+  server: {
+    port: 3000,
+  },
   build: {
-    outDir: "dist", // Default output folder
+    outDir: 'dist',
   },
 });
