@@ -59,7 +59,7 @@ const SignUp = () => {
         setError("An unexpected error occurred. Please try again later.");
       }
     }
-    
+  
   };
 
   return (
@@ -95,7 +95,7 @@ const SignUp = () => {
 
           <button type="submit" className="btn-primary">
             Create Account
-            </button>
+          </button>
 
           <p className="mt-4 text-sm text-center">
             Already have an account?{" "}
@@ -104,10 +104,10 @@ const SignUp = () => {
             </Link>
             </p>
 
-          </form>
-          </div>
-          </div>
-          </>
+        </form>
+      </div>
+    </div>
+  </>
 
   );
 };
