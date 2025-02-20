@@ -44,7 +44,7 @@ const SignUp = () => {
       });
 
       // Check if signup was successful
-      if (response.data && response.data.success) {
+      if (response.status === 200 && response.data) {
         navigate('/login'); // Navigate to the login page
       } else {
         setError('Signup successful but an unexpected error occurred.');
