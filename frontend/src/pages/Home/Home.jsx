@@ -90,7 +90,6 @@ const Home = () => {
   
   // delete note
   const deleteNote = async (data) => {   
-    
     const noteId = data._id
     
     try {

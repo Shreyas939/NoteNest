@@ -32,7 +32,7 @@ const Navbar = ({ userInfo, onSearchNote, handleClearSearch, hideSearch }) => {
 
   return (
    <div className="flex items-center justify-between px-6 py-2 bg-white drop-shadow">
-    <h2 className="py-2 text-xl font-medium text-black">Notes</h2> 
+    <h2 className={`py-2 text-xl font-medium text-black ${hideSearch ? 'mx-auto' : ''}`}>Notes</h2> 
 
     {isAuthenticated && !hideSearch && (
       <SearchBar 
