@@ -43,13 +43,11 @@ const SignUp = () => {
         password: password,
       });
 
-      // Check if token exists in the response
-      if (response.data && response.data.accessToken) {
-        localStorage.setItem('token', response.data.accessToken); // Save token in localStorage
-        setIsAuthenticated(true); // Update authentication state
-        navigate('/dashboard'); // Navigate to the dashboard
+      // Check if signup was successful
+      if (response.data && response.data.success) {
+        navigate('/login'); // Navigate to the login page
       } else {
-        setError('Signup successful but no token received.');
+        setError('Signup successful but an unexpected error occurred.');
       }
     } catch (error) {
       console.error('Signup error:', error); // Log the error for debugging
