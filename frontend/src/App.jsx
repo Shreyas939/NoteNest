@@ -1,28 +1,44 @@
-import React from 'react'
-import Home from "./pages/Home/Home.jsx"
-import {BrowserRouter as Router,Route,Routes} from "react-router-dom"
+import React, { useState, useEffect, createContext } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home/Home.jsx';
 import Login from './pages/Login/Login.jsx';
 import SignUp from './pages/SignUp/SignUp.jsx';
+import Navbar from './components/Navbar/Navbar';
+import './App.css';
 
-
-const routes = (
-    <Router>
-      <Routes>
-        <Route path="/dashboard" exact element={<Home />} />
-        <Route path="/login" exact element={<Login />} />
-        <Route path="/signup" exact element={<SignUp />} />
-        <Route path="/" exact element={<Login />} /> 
-      </Routes>
-    </Router>
-);
-
+export const ThemeContext = createContext();
 
 const App = () => {
-  return (
-    <div>
-      {routes}
-    </div>
-  )
-}
+  const [theme, setTheme] = useState('light');
 
-export default App
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      setTheme(savedTheme);
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+    localStorage.setItem('theme', newTheme);
+  };
+
+  return (
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      <div className={`app ${theme}`}>
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route path="/dashboard" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/" element={<Login />} />
+          </Routes>
+        </Router>
+      </div>
+    </ThemeContext.Provider>
+  );
+};
+
+export default App;
