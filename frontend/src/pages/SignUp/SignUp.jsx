@@ -53,6 +53,7 @@ const SignUp = () => {
         setError("Signup successful but no token received.");
       }
     } catch (error) {
+      console.error("Signup error:", error); // Log the error for debugging
       if (error.response && error.response.data && error.response.data.message) {
         setError(error.response.data.message);
       } else {
@@ -64,7 +65,7 @@ const SignUp = () => {
 
   return (
     <>
-    <Navbar />
+    <Navbar hideSearch /> {/* Pass hideSearch prop to hide the search bar */}
 
     <div className='flex items-center justify-center mt-28'>
       <div className='py-10 bg-white border rounded w-96 px-7'>

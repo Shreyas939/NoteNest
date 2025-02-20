@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import SearchBar from '../SearchBar/SearchBar';
 import { useAuth } from '../../context/AuthContext'; // Import AuthContext
 
-const Navbar = ({userInfo,onSearchNote,handleClearSearch}) => {
+const Navbar = ({ userInfo, onSearchNote, handleClearSearch, hideSearch }) => {
 
   const { isAuthenticated, setIsAuthenticated } = useAuth();
   const [searchQuery, setSearchQuery] = useState('');
@@ -34,14 +34,16 @@ const Navbar = ({userInfo,onSearchNote,handleClearSearch}) => {
    <div className="flex items-center justify-between px-6 py-2 bg-white drop-shadow">
     <h2 className="py-2 text-xl font-medium text-black">Notes</h2> 
 
-    <SearchBar 
-    value={searchQuery} 
-    onChange={({ target }) => {
-      setSearchQuery(target.value);
-    }}
-    handleSearch={handleSearch}
-    onClearSearch={onClearSearch}
-    />
+    {isAuthenticated && !hideSearch && (
+      <SearchBar 
+        value={searchQuery} 
+        onChange={({ target }) => {
+          setSearchQuery(target.value);
+        }}
+        handleSearch={handleSearch}
+        onClearSearch={onClearSearch}
+      />
+    )}
 
     {isAuthenticated && <ProfileInfo userInfo={userInfo} onLogout={onLogout} />}
     </div>  
