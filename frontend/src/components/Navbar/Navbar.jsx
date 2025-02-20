@@ -1,13 +1,12 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import ProfileInfo from '../Cards/ProfileInfo';
 import { useNavigate } from 'react-router-dom';
 import SearchBar from '../SearchBar/SearchBar';
 import { useAuth } from '../../context/AuthContext'; // Import AuthContext
-import { ThemeContext } from '../../App'; // Import ThemeContext
 
 const Navbar = ({ userInfo, onSearchNote, handleClearSearch, hideSearch }) => {
+
   const { isAuthenticated, setIsAuthenticated } = useAuth();
-  const { theme, toggleTheme } = useContext(ThemeContext);
   const [searchQuery, setSearchQuery] = useState('');
 
   const navigate = useNavigate();
@@ -45,10 +44,6 @@ const Navbar = ({ userInfo, onSearchNote, handleClearSearch, hideSearch }) => {
       )}
 
       {isAuthenticated && <ProfileInfo userInfo={userInfo} onLogout={onLogout} />}
-
-      <button onClick={toggleTheme} className="ml-4">
-        {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
-      </button>
     </div>
   );
 };
