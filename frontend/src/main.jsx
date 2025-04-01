@@ -6,7 +6,7 @@ import PWAPrompt from 'react-ios-pwa-prompt';
 
 createRoot(document.getElementById('root')).render(
   <AuthProvider>
-    <App /><PWAPrompt copyTitle='PWA Ready' appIconPath='../public/android-chrome-192x192.png'/>
+    <App /><PWAPrompt copyTitle='PWA Ready' appIconPath="/android-chrome-192x192.png"/>
   </AuthProvider>,
 
 )
