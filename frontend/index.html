@@ -5,19 +5,34 @@
     <link rel="icon" type="image/png" href="/note_icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NoteNest</title>
-          <!-- Google tag (gtag.js) -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-TE2XEHT379"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
 
-        gtag('config', 'G-TE2XEHT379');
-      </script>
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TE2XEHT379"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-TE2XEHT379');
+    </script>
   </head>
   <body>
     <div id="root"></div>
+    
+    <!-- Register Service Worker -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js').then((registration) => {
+          console.log('Service Worker registered:', registration);
+        }).catch((error) => {
+          console.log('Service Worker registration failed:', error);
+        });
+      }
+    </script>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
-
