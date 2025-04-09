@@ -36,7 +36,6 @@ export default defineConfig({
       },
     }),
   ],
-  base:"/MPL10",
   server: {
     port: 3000,
   },
